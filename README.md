@@ -32,7 +32,7 @@ This example installs nix for all users on myhost
 ```
 - hosts: myhost
   roles:
-    - role: nix
+    - role: danielrolls.nix`
 ```
 
 This example also installs nix for all users on myhost and then installs and runs nix-info.
@@ -40,7 +40,7 @@ See the [NixOS homepage](https://nixos.org/) for examples of commands to run.
 ```
 - hosts: myhost
   roles:
-    - role: nix
+    - role: danielrolls.nix
       nix_commands:
       - "nix-shell -p nix-info --command nix-info" 
 ```
