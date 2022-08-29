@@ -1,6 +1,9 @@
 nix-install
 =========
 
+[![Galaxy](https://img.shields.io/badge/galaxy-danielrolls.nix-blue.svg?style=flat-square)](https://galaxy.ansible.com/danielrolls/nix/)
+
+
 This is an Ansible role that installs the [nix](https://nixos.org/) package manager.
 At the time of writing, all other roles I've seen that install nix, install a single user nix.
 This role invokes the multi-user installation as recommended by the manual to ensure build isolation.
