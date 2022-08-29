@@ -1,0 +1,18 @@
+galaxy_info:
+    role_name: nix
+    author: Daniel Rolls
+    description: Installs the nix package manager with the daemon as recommended.
+    license: MIT
+    min_ansible_version: 2.1
+
+    platforms:
+        - name: Ubuntu
+          versions:
+              - all
+
+    galaxy_tags:
+        - nix
+        - system
+        - packaging
+
+dependencies: []

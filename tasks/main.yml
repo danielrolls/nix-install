@@ -1,0 +1,42 @@
+---
+- name: Get nix version
+  shell: |
+    . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+    nix --version
+  ignore_errors: true
+  changed_when: false
+  register: nix_version_output
+- name: Set nix version name
+  set_fact:
+    nix_version_on_system: "{{ (nix_version_output.stdout_lines[0] | split(' '))[2] }}"
+  when: nix_version_output.rc == 0
+- name: Check vars
+  debug:
+    var: nix_version_on_system
+- name: Check vars
+  debug:
+    var: nix_version
+- name: Download and run installer
+  block:
+    - name: Download installer
+      get_url:
+        url: "{{ installer_path }}"
+        dest: /tmp
+        checksum: "{{ installer_checksum }}"
+    - name: extract installer
+      unarchive:
+        src: /tmp/{{ nix_build }}.tar.xz
+        remote_src: true
+        dest: /tmp/
+    - name: Run the installer
+      become: true
+      ansible.builtin.shell:
+        cmd: ./install --daemon </dev/null
+        chdir: /tmp/{{ nix_build }}
+  when: (not nix_version_on_system is defined) or nix_version_on_system != nix_version
+- name: run nix commands
+  shell: |
+      . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+      {{ item }}
+  changed_when: true
+  loop: "{{ nix_commands }}"
