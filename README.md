@@ -35,7 +35,7 @@ This example installs nix for all users on myhost
 ```
 - hosts: myhost
   roles:
-    - role: danielrolls.nix`
+    - role: danielrolls.nix
 ```
 
 This example also installs nix for all users on myhost and then installs and runs nix-info.
