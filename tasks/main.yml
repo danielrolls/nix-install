@@ -10,12 +10,6 @@
   set_fact:
     nix_version_on_system: "{{ (nix_version_output.stdout_lines[0] | split(' '))[2] }}"
   when: nix_version_output.rc == 0
-- name: Check vars
-  debug:
-    var: nix_version_on_system
-- name: Check vars
-  debug:
-    var: nix_version
 - name: Download and run installer
   block:
     - name: Download installer
