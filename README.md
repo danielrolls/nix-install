@@ -27,6 +27,8 @@ It's easiest to let this fail and fix the error since the error is clear and pro
 
 nix_commands -- Optional list of shell commands to run in an environment with nix and the running nix daemon.
 
+flakes -- Set to enable nix flake commands.
+
 
 Example Playbook
 ----------------
