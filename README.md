@@ -7,6 +7,7 @@ nix-install
 This is an Ansible role that installs the [nix](https://nixos.org/) package manager.
 At the time of writing, all other roles I've seen that install nix, install a single user nix.
 This role invokes the multi-user installation as recommended by the manual to ensure build isolation.
+The role supports upgrading nix versions for which nix is uninstalled to allow the installer to work.
 This role is also extremely simple and hence easy to adapt.
 
 

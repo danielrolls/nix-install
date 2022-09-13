@@ -22,6 +22,65 @@
         src: /tmp/{{ nix_build }}.tar.xz
         remote_src: true
         dest: /tmp/
+    - name: Uninistall the previous nix
+      block:
+        - name: disable nix socket
+          service:
+            name: nix-daemon.socket
+            state: stopped
+            enabled: false
+          become: true
+          ignore_errors: true
+        - name: disable nix service
+          service:
+            name: nix-daemon.service
+            state: stopped
+            enabled: false
+          become: true
+          ignore_errors: true
+        - name: Remove Installed nix files
+          file:
+            state: absent
+            path: /nix
+          become: true
+        - name: Remove Installed nix config files
+          file:
+            state: absent
+            path: /etc/nix
+          become: true
+        - name: stat bash.bashrc.backup-before-nix
+          stat:
+            path: /etc/bash.bashrc.backup-before-nix
+          register: bash_bashrc_backup_stat
+        - name: Restore bash.bashrc
+          shell: mv /etc/bash.bashrc.backup-before-nix /etc/bash.bashrc
+          become: true
+          when: bash_bashrc_backup_stat.stat.exists
+        - name: stat bashrc.backup-before-nix
+          stat:
+            path: /etc/bashrc.backup-before-nix
+          register: bashrc_backup_stat
+        - name: Restore bashrc
+          shell: mv /etc/bashrc.backup-before-nix /etc/bashrc
+          become: true
+          when: bashrc_backup_stat.stat.exists
+        - name: stat zshrc.backup-before-nix
+          stat:
+            path: /etc/zshrc.backup-before-nix
+          register: zshrc_backup_stat
+        - name: Restore zshrc
+          shell: mv /etc/zshrc.backup-before-nix /etc/zshrc
+          become: true
+          when: zshrc_backup_stat.stat.exists
+        - name: stat nix.sh
+          stat:
+            path: /etc/profile.d/nix.sh.backup-before-nix
+          register: nixsh_backup_stat
+        - name: Restore nix.sh
+          shell: mv /etc/profile.d/nix.sh.backup-before-nix /etc/profile.d/nix.sh
+          become: true
+          when: nixsh_backup_stat.stat.exists
+      when: nix_version_on_system is defined and nix_version_on_system != nix_version
     - name: Run the installer
       become: true
       ansible.builtin.shell:
