@@ -92,6 +92,12 @@
         path: /etc/nix/nix.conf
         line: "experimental-features = nix-command flakes"
       when: flakes
+    - name: Add arbritrary nix config
+      blockinfile:
+        path: /etc/nix/nix.conf
+        block: "{{ config }}"
+      become: true
+      when: config is defined
   when: (not nix_version_on_system is defined) or nix_version_on_system != nix_version
 - name: run nix commands
   shell: |

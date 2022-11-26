@@ -1,5 +1,8 @@
 # Changelog for nix-install
 
+## 1.4.0
+- Support passing arbritrary nix-conf config
+  
 ## 1.3.0
 - Installs the latest 2.11.1 Nix release by default
 

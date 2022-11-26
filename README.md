@@ -30,6 +30,8 @@ nix_commands -- Optional list of shell commands to run in an environment with ni
 
 flakes -- Set to enable nix flake commands.
 
+config -- Optionally pass addition config to be added to the nix configuration file
+
 
 Example Playbook
 ----------------
