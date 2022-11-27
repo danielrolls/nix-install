@@ -1,5 +1,8 @@
 # Changelog for nix-install
 
+## 2.0.0
+- Ensure config changes including toggling flakes take effect whether or not the installer is run
+
 ## 1.4.0
 - Support passing arbritrary nix-conf config
   

@@ -86,19 +86,19 @@
       ansible.builtin.shell:
         cmd: ./install --daemon </dev/null
         chdir: /tmp/{{ nix_build }}
-    - name: Enable flakes
-      become: true
-      lineinfile:
-        path: /etc/nix/nix.conf
-        line: "experimental-features = nix-command flakes"
-      when: flakes
-    - name: Add arbritrary nix config
-      blockinfile:
-        path: /etc/nix/nix.conf
-        block: "{{ config }}"
-      become: true
-      when: config is defined
   when: (not nix_version_on_system is defined) or nix_version_on_system != nix_version
+- name: Enable flakes
+  become: true
+  lineinfile:
+    path: /etc/nix/nix.conf
+    line: "experimental-features = nix-command flakes"
+  when: flakes
+- name: Add arbritrary nix config
+  blockinfile:
+    path: /etc/nix/nix.conf
+    block: "{{ config }}"
+  become: true
+  when: config is defined
 - name: run nix commands
   shell: |
       . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
