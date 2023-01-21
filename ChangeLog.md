@@ -1,5 +1,8 @@
 # Changelog for nix-install
 
+## 2.2.0
+- Installs the latest 2.13.1 Nix release by default
+
 ## 2.1.0
 - Installs the latest 2.12 Nix release by default
 
