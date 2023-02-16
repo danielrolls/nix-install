@@ -17,4 +17,4 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: sudo apt-get install ansible
-      - run: ansible-playbook --help
+      - run: ansible-playbook test/install-role.yml
