@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  connection: local
+  roles:
+    - role: /home/runner/work/nix-install/nix-install
+      flakes: true
+

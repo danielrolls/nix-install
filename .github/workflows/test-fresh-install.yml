@@ -1,0 +1,12 @@
+name: Test installing role afresh
+run-name: ${{ github.actor }} is checking Nix installs afresh 🚀
+on: [push]
+jobs:
+  Install-Nix-Afresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: sudo apt-get install ansible
+      - run: ansible-playbook test/install-role.yml
+      - run: . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh && nix-shell -p nix-info --command nix-info
