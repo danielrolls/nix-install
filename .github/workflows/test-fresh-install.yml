@@ -12,5 +12,4 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: sudo apt-get install ansible
       - run: ansible-playbook test/install-role.yml
-      - run: . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-      - run: nix-shell -p nix-info --command nix-info
+      - run: . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh && nix-shell -p nix-info --command nix-info
