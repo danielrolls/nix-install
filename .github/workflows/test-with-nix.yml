@@ -10,4 +10,4 @@ jobs:
         with:
           nix_path: nixpkgs=channel:nixos-unstable
       - uses: actions/checkout@v3
-      - run: nix-shell -p nix-shell -p ansible_2_12 --command ansible-playbook --version
+      - run: nix-shell -p ansible_2_12 --command ansible-playbook --version
