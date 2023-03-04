@@ -1,0 +1,14 @@
+name: Test installing Ansible playbook 2.14
+on: [push]
+jobs:
+  Install-Nix-with-ansible-2-14:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: sudo apt-get install poetry
+      - run: poetry install
+        working-directory: ./test
+      - run: poetry run ansible-playbook test/install-role.yml
+      - run: . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh && nix-shell -p nix-info --command nix-info
+
