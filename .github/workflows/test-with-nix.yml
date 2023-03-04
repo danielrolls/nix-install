@@ -1,11 +1,20 @@
-steps:
-  - uses: actions/checkout@v3
-  - name: Install Nix
-    uses: cachix/install-nix-action@v20
-      with:
-        # Mostly to avoid GitHub rate limiting
-	extra_nix_config: |
-	  access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
-  # Note: this would only work if Cargo is included in the Nix shell
-  - name: Build 
-    run: nix develop nixpkgs#cowsay --command cowsay  
+name: "Test"
+on:
+  pull_request:
+  push:
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Nix
+      - name: Build 
+        run: nix develop nixpkgs#cowsay --command cowsay  
+      - uses: cachix/cachix-action@v12
+        with:
+          name: mycache
+          # If you chose signing key for write access
+          signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
+          # If you chose API tokens for write access OR if you have a private cache
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+      - run: nix-shell --run "echo OK"
