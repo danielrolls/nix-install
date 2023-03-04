@@ -9,7 +9,7 @@ jobs:
       - run: sudo apt-get install python3-poetry
       - run: poetry install
         working-directory: ./test
-      - run: poetry run ansible-playbook test/install-role.yml
+      - run: poetry run ansible-playbook ./install-role.yml
         working-directory: ./test
       - run: . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh && nix-shell -p nix-info --command nix-info
 
