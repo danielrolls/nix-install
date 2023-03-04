@@ -6,10 +6,6 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Install Nix
-      - name: Build 
-        run: nix develop nixpkgs#cowsay --command cowsay  
       - uses: cachix/cachix-action@v12
         with:
           name: mycache
@@ -17,4 +13,5 @@ jobs:
           signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
           # If you chose API tokens for write access OR if you have a private cache
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+      - uses: actions/checkout@v3
       - run: nix-shell --run "echo OK"
