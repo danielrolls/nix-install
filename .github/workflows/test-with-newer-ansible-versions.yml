@@ -4,11 +4,14 @@ jobs:
   Install-Nix-with-ansible-2-14:
     runs-on: ubuntu-22.04
     steps:
-      - name: Check out repository code
+      - name: Given this installer
         uses: actions/checkout@v3
-      - run: sudo apt-get install python3-poetry
+      - name: And the above named Ansible version
+        run: sudo apt-get install python3-poetry
       - run: poetry install
         working-directory: ./test
-      - run: poetry run ansible-playbook ./install-role.yml
+      - name: When I install from scratch
+        run: poetry run ansible-playbook ./install-role.yml
         working-directory: ./test
-      - run: . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh && nix-shell -p nix-info --command nix-info
+      - name: Then I can run a nix command
+        run: . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh && nix-shell -p nix-info --command nix-info
