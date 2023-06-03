@@ -1,5 +1,8 @@
 # Changelog for nix-install
 
+## 2.6.0
+- Installs the latest 2.16 Nix release by default
+
 ## 2.5.0
 - Installs the latest 2.15 Nix release by default
 
