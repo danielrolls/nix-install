@@ -1,5 +1,8 @@
 # Changelog for nix-install
 
+## 3.1.0
+- Installs the latest 2.16.1 Nix release by default
+
 ## 3.0.0
 - `nix_command` is now under defaults to aid overriding. Thanks to Michael Maurer for the feedback.
 
