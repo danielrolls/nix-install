@@ -37,7 +37,7 @@ Example Playbook
 ----------------
 
 This example installs nix for all users on myhost
-```
+```yaml
 - hosts: myhost
   roles:
     - role: danielrolls.nix
@@ -45,7 +45,7 @@ This example installs nix for all users on myhost
 
 This example also installs nix for all users on myhost and then installs and runs nix-info.
 See the [NixOS homepage](https://nixos.org/) for examples of commands to run.
-```
+```yaml
 - hosts: myhost
   roles:
     - role: danielrolls.nix
