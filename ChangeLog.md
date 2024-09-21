@@ -1,5 +1,8 @@
 # Changelog for nix-install
 
+## 3.18.0
+- Install the latest 2.24.6 Nix release by default
+
 ## 3.17.0
 - Install the latest 2.24.4 Nix release by default
 
