@@ -1,5 +1,5 @@
 ---
-nix_version: 2.25.2
+nix_version: 2.25.3
 installer_checksum: sha512:458c80a3e2a2c1269b785785ed704cc72e781d7d2a21321d4ca9c2e81bb9a95faf10487c194207943294d127f30338beeaf1dfa61e5102c04dcc0a719ee54221
 flakes: false
 nix_commands: []
