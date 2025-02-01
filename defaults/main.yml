@@ -1,5 +1,5 @@
 ---
 nix_version: 2.26.1
-installer_checksum: sha512:568651da91ee0edec8da4459e1734e2a16dbbeec2846f0b35b4a314a00ecf3d5ad301948eefeef1c86a105c5ed682d79d893e827ce976bbb45d5e960e6ea1205
+installer_checksum: sha512:25e4b2ec313f8b4d4c2b58d3986dc0820132b88376f40e8b18319eec7f26165f49039bd40525bad6237f1bfe0db90e9add060439e1bbc433deebabde29d09b5f
 flakes: false
 nix_commands: []
