@@ -43,6 +43,7 @@
             state: absent
             path: /nix
           become: true
+          when: 'remove_nix_directory|bool'
         - name: Remove Installed nix config files
           file:
             state: absent
