@@ -32,6 +32,8 @@ flakes -- Set to enable nix flake commands.
 
 config -- Optionally pass addition config to be added to the nix configuration file
 
+remove_nix_directory -- Set to false to avoid cleaning up /nix on upgrades.
+By doing this you avoid rebuilding packages in the Nix store after an upgrade.
 
 Example Playbook
 ----------------
