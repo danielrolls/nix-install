@@ -1,5 +1,8 @@
 # Changelog for nix-install
 
+## 3.27.0
+- Install the latest 2.27.0 Nix release by default
+
 ## 3.26.0
 - It is now possibe to set `remove_nix_directory` to false to avoid rebuilding your nix store after an upgrade.
 
