@@ -1,4 +1,4 @@
-name: Test installing Ansible playbook 2.16
+name: Test installing Ansible playbook 2.14
 on: [push]
 jobs:
   Install-Nix-with-ansible-2-14:
