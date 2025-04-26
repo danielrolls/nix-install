@@ -1,8 +1,8 @@
-name: Test installing Ansible playbook 2.14
+name: Test installing Ansible playbook 2.16
 on: [push]
 jobs:
-  Install-Nix-with-ansible-2-14:
-    runs-on: ubuntu-22.04
+  Install-Nix-with-ansible-2-16:
+    runs-on: ubuntu-24.04
     steps:
       - name: Given this installer
         uses: actions/checkout@v3
