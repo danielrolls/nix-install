@@ -1,6 +1,6 @@
 ---
-nix_version: 2.28.3
-installer_checksum: sha512:46ddcf329cd4162864a4dcd4445a02e55d9fc9deb5b366f6d3aacb1acf4dfb9a2741bfb10a166e9e70e9ad454f947e836f28ca9dc3c10aac05b3fa3da1573eb7
+nix_version: 2.29.0
+installer_checksum: sha512:7b73de6600023cfeb60015b7740a44278dbfec31c8a48d3e296ace4395a2206f40b2a41fb0d91bbce44104bc0a2985bf9317450328c46ff07490240ac15a44d3
 flakes: false
 nix_commands: []
 remove_nix_directory: true
