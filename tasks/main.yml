@@ -12,11 +12,16 @@
   when: nix_version_output.rc == 0
 - name: Download and run installer
   block:
+    - name: Fetch checksum
+      ansible.builtin.uri:
+        url: "{{ installer_path }}.sha256"
+        return_content: yes
+      register: checksum_file
     - name: Download installer
       get_url:
         url: "{{ installer_path }}"
         dest: /tmp
-        checksum: "{{ installer_checksum }}"
+        checksum: "sha256:{{ checksum_file.content }}"
     - name: extract installer
       unarchive:
         src: /tmp/{{ nix_build }}.tar.xz
