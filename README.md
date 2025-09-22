@@ -22,10 +22,6 @@ Role Variables
 nix_version -- The version of nix to download and install.
 If unset this role will take the latest nix version it has been tested with.
 
-installer_checksum -- A checksum for the installer binary.
-You will need to change this if you change the nix version that is downloaded.
-It's easiest to let this fail and fix the error since the error is clear and provides the new checksum value to copy in.
-
 nix_commands -- Optional list of shell commands to run in an environment with nix and the running nix daemon.
 
 flakes -- Set to enable nix flake commands.
