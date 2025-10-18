@@ -1,5 +1,8 @@
 # Changelog for nix-install
 
+## 3.41.0
+- Install the latest 2.32.1 Nix release by default
+
 ## 3.40.0
 - Install the latest 2.32.0 Nix release by default
 
