@@ -1,6 +1,6 @@
 ---
 nix_version: 2.32.4
-installer_checksum: 0737755f3106e8dffbf26a77af398888e8421974b91fe2b86052c891f71e16b5
+installer_checksum: sha256:0737755f3106e8dffbf26a77af398888e8421974b91fe2b86052c891f71e16b5
 flakes: false
 nix_commands: []
 remove_nix_directory: true
