@@ -3,7 +3,7 @@
   shell: |
     . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
     nix --version
-  ignore_errors: true
+  failed_when: false
   changed_when: false
   register: nix_version_output
 - name: Set nix version name
